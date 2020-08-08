@@ -49,7 +49,7 @@ if [[ $DD == False && -n "$ADAM_OPTS" ]]; then
     echo "Run adam-submit instead as adam-submit <spark-args> -- <adam-args>" 1>&2
 fi
 
-ADAM_CLI_JAR=$(bash ${EVA_HOME}/adam_bin/find-adam-assembly.sh)
+ADAM_CLI_JAR=$(bash ${ADAM_HOME}/exec/find-adam-assembly.sh)
 
 # Allow main class to be overridden
 if [ -z "$ADAM_MAIN" ]; then
@@ -57,7 +57,7 @@ if [ -z "$ADAM_MAIN" ]; then
 fi
 echo "Using ADAM_MAIN=$ADAM_MAIN" 1>&2
 
-SPARK_SUBMIT=$(bash ${EVA_HOME}/adam_bin/find-spark.sh)
+SPARK_SUBMIT=$(bash ${ADAM_HOME}/exec/find-spark.sh)
 echo "Using spark-submit=$SPARK_SUBMIT" 1>&2
 
 # submit the job to Spark
