@@ -456,10 +456,9 @@ sealed abstract class VariantContextDataset extends MultisampleGenomicDataset[Va
 
     // make header
     val header = new VCFHeader(
-      DefaultHeaderLines.allHeaderLines.toSet,
+      headerLines.toSet,
       samples.map(_.getId))
     header.setSequenceDictionary(sequences.toSAMSequenceDictionary)
-
 
     // write header
     val headPath = new Path("%s_head".format(filePath))
@@ -478,7 +477,6 @@ sealed abstract class VariantContextDataset extends MultisampleGenomicDataset[Va
     // set path to header file and the vcf format
     conf.set("org.bdgenomics.adam.rdd.variant.vcf_header_path", headPath.toString)
     conf.set(VCFOutputFormat.OUTPUT_VCF_FORMAT_PROPERTY, vcfFormat.toString)
-    conf.set("fs.defaultFS", "hdfs://vm0:9000")
     if (isBgzip) {
       conf.setStrings("io.compression.codecs",
         classOf[BGZFCodec].getCanonicalName,
