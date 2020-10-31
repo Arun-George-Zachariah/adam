@@ -25,9 +25,9 @@ if [[ -z $@ && -n "$ADAM_OPTS" ]]; then
     echo "Run adam-shell instead as adam-shell <spark-args>" 1>&2
 fi
 
-ADAM_CLI_JAR=$(bash ${ADAM_HOME}/exec/find-adam-assembly.sh)
+ADAM_CLI_JAR=$(bash ${ADAM_HOME}/spark2_exec/find-adam-assembly.sh)
 
-SPARK_SHELL=$(bash ${ADAM_HOME}/exec/find-spark.sh spark-shell)
+SPARK_SHELL=$(bash ${ADAM_HOME}/spark2_exec/find-spark.sh spark-shell)
 echo "Using SPARK_SHELL=$SPARK_SHELL" 1>&2
 
 # submit the job to Spark

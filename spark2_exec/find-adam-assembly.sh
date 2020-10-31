@@ -18,7 +18,7 @@
 #
 set -e
 
-ASSEMBLY_DIR="${ADAM_HOME}/exec/jars"
+ASSEMBLY_DIR="${ADAM_HOME}/spark2_exec/jars"
 
 ASSEMBLY_JARS=$(ls -1 "$ASSEMBLY_DIR" | grep "^adam[0-9A-Za-z\.\_\-]*\.jar$" | grep -v javadoc | grep -v sources || true)
 num_jars=$(echo ${ASSEMBLY_JARS} | wc -w)
